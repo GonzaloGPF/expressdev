@@ -5,7 +5,7 @@ var named = require('vinyl-named');
 var sourcemaps = require('gulp-sourcemaps');
 var through = require('through2');
 var webpack = require('webpack-stream');
-//var nodemon = require('gulp-nodemon');
+var nodemon = require('gulp-nodemon');
 var imagemin = require('gulp-imagemin');
 var notify = require("gulp-notify");
 
@@ -68,6 +68,18 @@ gulp.task('images', function() {
     gulp.src('./resources/images/*')
         .pipe(imagemin())
         .pipe(gulp.dest('public/images'));
+});
+
+/**
+ * Gulp Nodemon!
+ * It watches all files from backend
+ */
+gulp.task('nodemon', () => {
+    nodemon({ script: './bin/www'
+        , ignore: ['./public', './node_modules']
+        , watch: ['app.js', './server']
+        , ext: 'js scss'});
+        //.on('start', ['scripts', 'sass', 'fonts']);
 });
 
 /**
