@@ -1,0 +1,18 @@
+/*********************** App variables **************************/
+//Fonts
+$fonts-directory: "../../fonts/";
+
+//Colors https://coolors.co/7a6c5d-2a3d45-ddc9b4-bcac9b-c17c74
+$color-1: #7A6C5D;
+$color-2: #2A3D45;
+$color-3: #DDC9B4;
+$color-4: #BCAC9B;
+$color-5: #C17C74;
+
+/*********************** Vendor variables **************************/
+$node_modules: "../../../node_modules/";
+//Bootstrap
+$icon-font-path: $fonts-directory + "/bootstrap/";
+
+//Font-Awesome
+$fa-font-path: $fonts-directory + "font-awesome/";

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+@import "globals/variables";
+
+/**************** Vendor *******************/
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+
+html, body{
+	height: 100%
+}
+
+body {
+	background: $color-2;
+	color: white;
+}
