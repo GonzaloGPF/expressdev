@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    .container
+        .jumbotron.small-form
+            form(action="/auth/register", method="post")
+                h1 Register
+
+                .form-group
+                    label.control-label Name
+                    input(type="text", name="name").form-control
+                .form-group
+                    label.control-label Email
+                    input(type="email", name="email").form-control
+                .form-group
+                    label.control-label Password
+                    input(type="password", name="password").form-control
+                .form-group
+                    label.control-label Password confirmation
+                    input(type="password", name="password_confirmation").form-control
+
+                button.btn.btn-primary.btn-raised Submit

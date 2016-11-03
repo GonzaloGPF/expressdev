@@ -68,5 +68,5 @@ process.on('SIGTERM', function () {
     });
 });
 
-//Schemas & Models
-//require('../models/User');
+// Register Models
+require('../models/User');
