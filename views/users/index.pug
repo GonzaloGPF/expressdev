@@ -1,0 +1,10 @@
+extends ../layout
+
+block content
+	.container
+		h1 Usuarios
+		each user in users
+			.col-xs-6.col-sm-4.col-md-3
+				.users-box
+					span.user-name=user.name
+					span.user-email=user.email

@@ -1,13 +1,14 @@
 'use strict';
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var named = require('vinyl-named');
-var sourcemaps = require('gulp-sourcemaps');
-var through = require('through2');
-var webpack = require('webpack-stream');
-var nodemon = require('gulp-nodemon');
-var imagemin = require('gulp-imagemin');
-var notify = require("gulp-notify");
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const named = require('vinyl-named');
+const sourcemaps = require('gulp-sourcemaps');
+const through = require('through2');
+const webpack = require('webpack-stream');
+const nodemon = require('gulp-nodemon');
+const imagemin = require('gulp-imagemin');
+const notify = require("gulp-notify");
+var exec = require('child_process').exec;
 
 const MAIN_SCRIPT = 'resources/js/main.js';
 const MAIN_STYLE = 'resources/sass/main.scss';
@@ -80,6 +81,17 @@ gulp.task('nodemon', () => {
         , watch: ['app.js', './server']
         , ext: 'js scss'});
         //.on('start', ['scripts', 'sass', 'fonts']);
+});
+
+/**
+ * This task will populate the database by calling and executing DataBaseSeeder.js file
+ */
+gulp.task('seed', (cb) => {
+    exec('node ./database/seeds/DataBaseSeeder.js', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    })
 });
 
 /**

@@ -7,14 +7,14 @@ module.exports.getUsers = (req, res) => {
   var users = User.find({}, function (err, users) {
       if(err) console.log(err);
       res.status(200);
-      res.json({users: users});
+      res.render('users/index', {users: users});
   });
 };
 
 module.exports.showUser = (req, res) => {
-  var user = User.find({email: req.params.email}, function (err, user) {
+  var user = User.findOne({email: req.params.email}, function (err, user) {
       if(err) console.log(err);
       res.status(200);
-      res.json({user: user});
+      res.render('users/show', {user: user});
   });
 }

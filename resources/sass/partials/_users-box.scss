@@ -1,0 +1,19 @@
+.users-box{
+	height: 80px;
+	padding: 10px;
+	margin: 10px;
+	box-shadow: -5px 5px 10px black;
+	background: white;
+	&:hover{
+		background: #EEE;
+		cursor: pointer;
+	}
+	.user-name, .user-email{
+		color: black;
+		display:block;
+	}
+
+	.user-name{
+		font-weight: 600;
+	}
+}
