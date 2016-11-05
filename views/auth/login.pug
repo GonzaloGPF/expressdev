@@ -1,16 +1,14 @@
 extends ../layout
 
 block content
-    .container
-        .jumbotron.small-form
-            form(action="/auth/login", method="post")
-                h1 Login
-                p=message
-                .form-group.label-floating
-                    label.control-label Email
-                    input(type="email", name="email" required).form-control
-                .form-group.label-floating
-                    label.control-label Password
-                    input(type="password", name="password" required).form-control
+    .container    
+        form.small-form(action="/auth/login", method="post")
+            h1 Login
+            .form-group
+                label.control-label Email
+                input(type="email", name="email" required).form-control
+            .form-group
+                label.control-label Password
+                input(type="password", name="password" required).form-control
 
-                button.btn.btn-primary.btn-raised Submit
+            button.btn.btn-primary Submit

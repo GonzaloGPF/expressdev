@@ -8,7 +8,7 @@ const webpack = require('webpack-stream');
 const nodemon = require('gulp-nodemon');
 const imagemin = require('gulp-imagemin');
 const notify = require("gulp-notify");
-var exec = require('child_process').exec;
+const exec = require('child_process').exec;
 
 const MAIN_SCRIPT = 'resources/js/main.js';
 const MAIN_STYLE = 'resources/sass/main.scss';
@@ -69,6 +69,14 @@ gulp.task('images', function() {
     gulp.src('./resources/images/*')
         .pipe(imagemin())
         .pipe(gulp.dest('public/images'));
+});
+
+/**
+ * GULP WATCHER TASKS
+ */
+gulp.task('watch', () => {
+    gulp.watch('resources/js/**/*.js', ['scripts']);
+    gulp.watch('resources/sass/**/*.scss', ['sass']);
 });
 
 /**

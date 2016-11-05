@@ -48,4 +48,16 @@ schema.statics.hashPassword = function (password, salt) {
     return crypto.pbkdf2Sync(password, salt, ITERATIONS, KEY_LEN, DIGEST).toString('hex');
 };
 
+schema.statics.authenticate = function(email, password, callback) {
+    this.findOne({ email: email }, function (err, user) {
+        if (err) return callback(err);
+
+        if (!user) return callback(null, false, {message: 'Incorrect email.'});
+
+        if (!user.validPassword(password)) return callback(null, false, {message: 'Incorrect password.'});
+
+        return callback(null, user);
+    });
+};
+
 mongoose.model('User', schema);

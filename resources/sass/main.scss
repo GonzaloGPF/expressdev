@@ -5,7 +5,11 @@
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../node_modules/font-awesome/scss/font-awesome";
 
+@import "./globals/forms";
+@import "./globals/footer";
+
 @import "./partials/users-box";
+
 
 html, body{
 	height: 100%

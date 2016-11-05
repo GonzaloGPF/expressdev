@@ -8,7 +8,12 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 
+const locals = require('./server/middlewares/Locals');
+
 require('./server/models/db.js');
+
+require('./server/models/db.js');
+require('./server/config/passport.js');
 
 const index = require('./server/routes/index');
 const users = require('./server/routes/users');
@@ -32,6 +37,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', index);
 app.use('/users', users);

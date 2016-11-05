@@ -47,7 +47,7 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.logout = (req, res) => {
-    req.logout();
     console.log(`User ${req.user.name} logged out`);
+    req.logout();
     res.redirect('/');
 };
