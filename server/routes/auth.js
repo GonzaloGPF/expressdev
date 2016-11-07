@@ -7,14 +7,14 @@ var authCtrl = require('../controllers/AuthCtrl');
 var authenticated = require('../middlewares/Authenticated');
 var redirectAuthenticated = require('../middlewares/RedirectAuthenticated');
 
-router.get('/login', redirectAuthenticated, authCtrl.getLogin); // <-- Nuevo
+router.get('/login', redirectAuthenticated, authCtrl.getLogin);
 
-router.post('/login', redirectAuthenticated, authCtrl.login);   // <-- Nuevo
+router.post('/login', redirectAuthenticated, authCtrl.login);
 
-router.get('/logout', authenticated, authCtrl.logout);          // <-- Nuevo
+router.get('/logout', authenticated, authCtrl.logout);
 
-router.get('/register', redirectAuthenticated, authCtrl.getRegister);  // <-- Nuevo
+router.get('/register', redirectAuthenticated, authCtrl.getRegister);
 
-router.post('/register', redirectAuthenticated, authCtrl.register);    // <-- Nuevo
+router.post('/register', redirectAuthenticated, authCtrl.register);
 
 module.exports = router;
