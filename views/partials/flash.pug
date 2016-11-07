@@ -1,0 +1,17 @@
+if(messages.info)
+	.flash-message.alert.alert-info.fade
+			button(data-dismiss="alert").close
+				span(aria-hidden="true") &times;
+			span= messages.info
+
+if(messages.success)
+	.flash-message.alert.alert-success.fade
+			button(data-dismiss="alert").close
+				span(aria-hidden="true") &times;
+			span= messages.success
+
+if(messages.error)
+	.flash-message.alert.alert-danger.fade
+			button(data-dismiss="alert").close
+				span(aria-hidden="true") &times;
+			span= messages.error						

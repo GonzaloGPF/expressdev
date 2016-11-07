@@ -1,0 +1,27 @@
+nav.navbar.navbar-default
+    .container-fluid
+        .navbar-header
+            button(type="button", data-toggle="collapse", data-target="#navbar").navbar-toggle.collapsed
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            a(href="/").navbar-brand Home
+        div(id="navbar").collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+                li
+                    a(href="/users") Usuarios
+                if(user)
+                    li.dropdown
+                        a(href="#", data-toggle="dropdown", role="button").dropdown-toggle=user.name
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href="/auth/logout") Logout
+                else
+                    li.dropdown
+                        a(href="#", data-toggle="dropdown", role="button").dropdown-toggle Enter
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href="/auth/login") Login
+                                a(href="/auth/register") Register

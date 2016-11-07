@@ -7,12 +7,11 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
-
+const flash = require('express-flash');
 const locals = require('./server/middlewares/Locals');
 
 require('./server/models/db.js');
 
-require('./server/models/db.js');
 require('./server/config/passport.js');
 
 const index = require('./server/routes/index');
@@ -37,10 +36,11 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
-
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('*', locals);
 app.use('/', index);
 app.use('/users', users);
 app.use('/auth', auth);

@@ -4,12 +4,12 @@ html
 		title= title
 		link(rel='stylesheet', href='/css/main.css')
 	body
+		include partials/navbar
+		include partials/flash
 
 		block content
 
-		footer
-			.center-block 
-				span &copy; ExpressDev all rights are not reserved
+		include partials/footer
 
 		script(src='/js/main.js')
 

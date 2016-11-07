@@ -4,20 +4,17 @@ var passport = require('passport');
 var authCtrl = require('../controllers/AuthCtrl');
 
 /** Middlewares */
-//var authenticated = require('../middlewares/Authenticated');
-//var redirectAuthenticated = require('../middlewares/RedirectAuthenticated');
+var authenticated = require('../middlewares/Authenticated');
+var redirectAuthenticated = require('../middlewares/RedirectAuthenticated');
 
-//router.get('/login', redirectAuthenticated, authCtrl.getLogin);
-router.get('/login', authCtrl.getLogin);
+router.get('/login', redirectAuthenticated, authCtrl.getLogin); // <-- Nuevo
 
-//router.post('/login', redirectAuthenticated, authCtrl.login);
-router.post('/login', authCtrl.login);
+router.post('/login', redirectAuthenticated, authCtrl.login);   // <-- Nuevo
 
-//router.get('/logout', authenticated, authCtrl.logout);
-router.get('/logout', authCtrl.logout);
+router.get('/logout', authenticated, authCtrl.logout);          // <-- Nuevo
 
-router.get('/register', authCtrl.getRegister);
+router.get('/register', redirectAuthenticated, authCtrl.getRegister);  // <-- Nuevo
 
-router.post('/register', authCtrl.register);
+router.post('/register', redirectAuthenticated, authCtrl.register);    // <-- Nuevo
 
 module.exports = router;

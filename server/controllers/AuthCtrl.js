@@ -20,6 +20,7 @@ module.exports.register = (req, res) => {
 
         req.login(user, function(err) {
             if (err) console.log(err);
+            req.flash('success', `Welcome ${user.name}!`); // <-- Nuevo
             console.log(`User ${req.user.name} registered`);
             return res.redirect('/'); //res.redirect('/users/' + req.user.username);
         });
@@ -33,13 +34,14 @@ module.exports.getLogin = (req, res) => {
 module.exports.login = (req, res, next) => {
     passport.authenticate('local', function(err, user, info) {
         if (err) { return next(err); }
-        if (!user) {
-            req.flash('error', info.message);
+        if (!user) {    
+            req.flash('error', `Error: ${info.message}!`); // <-- Nuevo    
             return res.redirect('/auth/login');
         }
         req.logIn(user, function(err) {
             if (err) { return next(err); }
             //return res.redirect('/users/' + user.username);
+            req.flash('success', `Hi ${user.name}!`); // <-- Nuevo  
             console.log(`User ${req.user.name} logged in`);
             return res.redirect('/');
         });
@@ -48,6 +50,7 @@ module.exports.login = (req, res, next) => {
 
 module.exports.logout = (req, res) => {
     console.log(`User ${req.user.name} logged out`);
+    req.flash('info', `Goodbye ${req.user.name}!`); // <-- Nuevo
     req.logout();
     res.redirect('/');
 };
